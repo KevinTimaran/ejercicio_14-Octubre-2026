@@ -207,16 +207,16 @@ export default function CrustPizzaApp() {
             <div className="tape top-[-8px] left-6 w-16 -rotate-12 rounded-xs" />
             <div className="tape bottom-[-8px] right-6 w-16 rotate-6 rounded-xs" />
 
-            <div className="relative min-h-[380px] p-6 flex flex-col justify-between z-10">
+            <div className="relative min-h-[360px] p-5 sm:p-6 flex flex-col justify-between z-10">
               {/* Overlay Card on Top/Left */}
-              <div className="max-w-[280px] bg-black/60 backdrop-blur-md rounded-2xl p-4 border border-white/10 text-white space-y-2.5">
+              <div className="max-w-[290px] bg-black/70 backdrop-blur-md rounded-2xl p-4 border border-white/10 text-white space-y-2.5 shadow-xl">
                 <span className="inline-block px-2 py-0.5 rounded bg-[#e8772e] text-white text-[9px] font-black uppercase tracking-widest">
                   Artesanal
                 </span>
-                <h1 className="text-2xl sm:text-3xl font-black uppercase tracking-tight leading-tight">
+                <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight leading-tight">
                   For Delicious, Made-From Scratch Pizzas
                 </h1>
-                <p className="text-xs text-stone-200 leading-relaxed font-medium">
+                <p className="text-[11px] text-stone-200 leading-relaxed font-medium">
                   Nuestro dough artesanal horneado fresco cada día a la piedra.
                 </p>
                 <button className="w-full sm:w-auto bg-[#e8772e] hover:bg-[#d4681f] text-white font-bold text-xs uppercase tracking-wider px-6 py-2.5 rounded-full transition-transform active:scale-95 shadow-lg shadow-[#e8772e]/30">
@@ -224,12 +224,14 @@ export default function CrustPizzaApp() {
                 </button>
               </div>
 
-              {/* Empty Card Slot for the Hero Pizza Image */}
-              <div className="mt-4 w-full">
-                <ImageCardSlot
-                  label="[ Espacio: Foto Hero de Pizza Compartida en Mesa ]"
-                  sublabel="Vista cenital de pizza artesanal cortada en porciones"
-                  className="w-full h-44 rounded-xl border-amber-400/40 bg-amber-950/40 text-amber-200"
+              {/* Hero Pizza Image */}
+              <div className="mt-4 w-full relative h-48 sm:h-56 rounded-xl overflow-hidden border border-amber-400/30 shadow-inner">
+                <Image
+                  src="/images/hero-pizza.png"
+                  alt="For Delicious Made-From Scratch Pizzas"
+                  fill
+                  priority
+                  className="object-cover"
                 />
               </div>
             </div>
@@ -254,40 +256,41 @@ export default function CrustPizzaApp() {
                   title: "Chicken Parm",
                   price: "$9",
                   desc: "Pollo empanizado, salsa marinara casera y queso mozzarella fresco.",
-                  imageLabel: "[ Foto: Chicken Parm ]",
+                  imageSrc: "/images/menu-chicken-parm.png",
                 },
                 {
                   id: "m-2",
                   title: "Chicken Alfredo",
                   price: "$8",
                   desc: "Pasta cremosa con pollo a la parrilla en salsa alfredo con parmesano.",
-                  imageLabel: "[ Foto: Chicken Alfredo ]",
+                  imageSrc: "/images/menu-chicken-alfredo.png",
                 },
                 {
                   id: "m-3",
                   title: "Spaghetti & Meatballs",
                   price: "$9",
                   desc: "Espagueti con albóndigas caseras en salsa de tomate con hierbas frescas.",
-                  imageLabel: "[ Foto: Spaghetti & Meatballs ]",
+                  imageSrc: "/images/menu-spaghetti.png",
                 },
                 {
                   id: "m-4",
                   title: "Baked Mac & Cheese",
                   price: "$10",
                   desc: "Macarrones horneados con quesos cheddar y gruyère, gratinado crujiente.",
-                  imageLabel: "[ Foto: Baked Mac & Cheese ]",
+                  imageSrc: "/images/menu-mac-cheese.png",
                 },
               ].map((item) => (
                 <div
                   key={item.id}
                   className="bg-white rounded-xl overflow-hidden shadow-xs border border-[#e8e0d8] flex flex-col justify-between hover:shadow-md transition-shadow group"
                 >
-                  {/* Empty Image Card Slot */}
-                  <div className="relative">
-                    <ImageCardSlot
-                      label={item.imageLabel}
-                      sublabel="160x160 px"
-                      className="w-full h-32 rounded-none border-0 border-b border-[#e8e0d8]"
+                  {/* Image Container with Price Badge */}
+                  <div className="relative w-full h-32 bg-stone-100 overflow-hidden">
+                    <Image
+                      src={item.imageSrc}
+                      alt={item.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     {/* Price Badge */}
                     <div className="absolute bottom-2 right-2 w-7 h-7 rounded-full bg-[#e8772e] text-white font-black text-[11px] flex items-center justify-center shadow-md">
@@ -364,32 +367,24 @@ export default function CrustPizzaApp() {
               })}
             </div>
 
-            {/* Polaroid Photos Area (Staff / Founders) */}
-            <div className="pt-2 flex justify-center items-center gap-3">
-              {/* Polaroid 1 */}
-              <div className="relative bg-white p-2.5 pb-6 rounded-sm shadow-md -rotate-3 border border-stone-200 max-w-[160px] flex-1">
-                <div className="tape -top-2 left-6 w-12 rotate-12" />
-                <ImageCardSlot
-                  label="[ Polaroid 1 ]"
-                  sublabel="Foto personal"
-                  className="w-full h-28 rounded-none border border-stone-300"
-                />
-                <span className="block text-center text-[9px] font-bold text-stone-600 mt-2 tracking-wider">
-                  Fundador
-                </span>
-              </div>
-
-              {/* Polaroid 2 */}
-              <div className="relative bg-white p-2.5 pb-6 rounded-sm shadow-md rotate-3 border border-stone-200 max-w-[160px] flex-1">
-                <div className="tape -top-2 right-6 w-12 -rotate-12" />
-                <ImageCardSlot
-                  label="[ Polaroid 2 ]"
-                  sublabel="Foto personal"
-                  className="w-full h-28 rounded-none border border-stone-300"
-                />
-                <span className="block text-center text-[9px] font-bold text-stone-600 mt-2 tracking-wider">
-                  Equipo
-                </span>
+            {/* Polaroid Photo Area (Founders / Team) */}
+            <div className="pt-2 flex justify-center items-center">
+              <div className="relative bg-white p-3 pb-6 rounded-md shadow-lg border border-stone-200 max-w-[280px] sm:max-w-[320px] w-full">
+                {/* Washi tape accents */}
+                <div className="tape -top-2.5 left-6 w-14 -rotate-12" />
+                <div className="tape -top-2.5 right-6 w-14 rotate-12" />
+                <div className="relative w-full aspect-[1.13/1] bg-stone-100 rounded-sm overflow-hidden">
+                  <Image
+                    src="/images/founder.png"
+                    alt="Fundadores de Crust Pizza Co."
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex justify-between items-center text-[9px] font-bold text-stone-600 mt-2.5 px-1 tracking-wider uppercase">
+                  <span>Fundadores</span>
+                  <span>Equipo Crust</span>
+                </div>
               </div>
             </div>
           </section>
@@ -404,22 +399,13 @@ export default function CrustPizzaApp() {
 
             {/* Big Pizza Card Slot with Center Stamp Logo */}
             <div className="relative rounded-2xl overflow-hidden shadow-sm border border-[#e8e0d8] bg-white p-2">
-              <div className="relative w-full h-60 rounded-xl overflow-hidden">
-                <ImageCardSlot
-                  label="[ Espacio: Pizza Grande Pepperoni con Sello ]"
-                  sublabel="Pizza completa horneada con el sello de la marca"
-                  className="w-full h-full"
+              <div className="relative w-full aspect-square max-h-[360px] rounded-xl overflow-hidden bg-stone-100">
+                <Image
+                  src="/images/pizza-stamp.png"
+                  alt="Crust Pizza Co. Chicago-Style Thin Crust Pepperoni"
+                  fill
+                  className="object-cover"
                 />
-                {/* Center Stamp Badge Overlay */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full bg-black/85 border-2 border-[#e8772e] text-white flex flex-col items-center justify-center shadow-xl pointer-events-none">
-                  <span className="text-xs font-black tracking-widest">CRUST</span>
-                  <span className="text-[9px] font-black tracking-wider text-[#e8772e]">PIZZA CO</span>
-                  <div className="flex gap-1 mt-1">
-                    <span className="w-1 h-1 rounded-full bg-[#e8772e]" />
-                    <span className="w-1 h-1 rounded-full bg-[#e8772e]" />
-                    <span className="w-1 h-1 rounded-full bg-[#e8772e]" />
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -456,20 +442,18 @@ export default function CrustPizzaApp() {
               </div>
             </div>
 
-            {/* WHY CHOOSE US (6 Photo Mosaic Slots) */}
+            {/* WHY CHOOSE US (Single Composite Mosaico Image) */}
             <div className="pt-3 space-y-2">
               <h3 className="text-xs font-black uppercase tracking-wider text-[#1a1a1a]">
                 Why Choose Us
               </h3>
-              <div className="grid grid-cols-3 gap-2">
-                {[1, 2, 3, 4, 5, 6].map((num) => (
-                  <ImageCardSlot
-                    key={num}
-                    label={`[ Foto ${num} ]`}
-                    sublabel="Mosaico"
-                    className="w-full h-24 rounded-lg"
-                  />
-                ))}
+              <div className="relative w-full aspect-[1024/626] rounded-xl overflow-hidden shadow-xs border border-[#e8e0d8] bg-stone-100">
+                <Image
+                  src="/images/Why-Choose.png"
+                  alt="Why Choose Us - Mosaico Crust Pizza"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           </section>
@@ -488,13 +472,16 @@ export default function CrustPizzaApp() {
               </p>
             </div>
 
-            {/* Community Illustration / Image Slot */}
-            <div className="bg-white rounded-2xl p-4 border border-[#e8e0d8] shadow-xs flex items-center justify-center">
-              <ImageCardSlot
-                label="[ Espacio: Ilustración o Foto de Comunidad ]"
-                sublabel="Personas sosteniendo cartel comunitario"
-                className="w-full h-36 rounded-xl"
-              />
+            {/* Community Image */}
+            <div className="bg-white rounded-2xl p-3 border border-[#e8e0d8] shadow-xs flex items-center justify-center">
+              <div className="relative w-full aspect-[1024/700] sm:aspect-[16/9] rounded-xl overflow-hidden bg-stone-100">
+                <Image
+                  src="/images/community.png"
+                  alt="Let's Work Together For Our Community"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </div>
           </section>
 
