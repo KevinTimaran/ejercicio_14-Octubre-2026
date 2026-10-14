@@ -1,16 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0f1117;
-  --foreground: #f3f4f6;
-  --card-bg: rgba(26, 29, 38, 0.75);
-  --accent: #6366f1;
-  --accent-light: #818cf8;
+  --background: #f5f0eb;
+  --foreground: #1a1a1a;
+  --primary-orange: #e8772e;
+  --primary-orange-hover: #d4681f;
+  --border-warm: #e8e0d8;
+  --card-white: #ffffff;
+  --card-dark: #1a1a1a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary-orange);
+  --color-primary-hover: var(--primary-orange-hover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -22,52 +26,48 @@
 
 html, body {
   min-height: 100%;
-  min-height: 100dvh;
-  background-color: #0b0d13;
-  color: #f3f4f6;
+  background-color: #ede7df;
+  color: #1a1a1a;
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
-  user-select: none;
 }
 
-/* Hide scrollbar for clean horizontal pill sliders */
+/* Washi tape effect for photos and cards */
+.tape {
+  position: absolute;
+  height: 22px;
+  background: rgba(220, 210, 185, 0.78);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Empty image placeholder card */
+.image-placeholder {
+  background: linear-gradient(135deg, #eee7dc 0%, #e5dcce 100%);
+  border: 2px dashed #cfc4b2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #7d7260;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-placeholder:hover {
+  background: linear-gradient(135deg, #e8dfd2 0%, #ded3c2 100%);
+  border-color: #e8772e;
+  color: #e8772e;
+}
+
+/* Hide scrollbar for carousels */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-/* Glassmorphism helpers */
-.glass-panel {
-  background: rgba(22, 26, 38, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-nav {
-  background: rgba(13, 16, 25, 0.82);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-card {
-  background: linear-gradient(145deg, rgba(28, 33, 48, 0.85) 0%, rgba(18, 21, 32, 0.95) 100%);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.glass-card:hover {
-  border-color: rgba(99, 102, 241, 0.35);
-}
-
-/* Safe area insets for mobile screens */
-.safe-top {
-  padding-top: max(1rem, env(safe-area-inset-top));
-}
-.safe-bottom {
-  padding-bottom: max(1rem, env(safe-area-inset-bottom));
 }

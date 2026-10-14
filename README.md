@@ -1,46 +1,60 @@
-# AURA Studio — Diseño de Pantalla Móvil (E-Commerce Web)
+# Crust Pizza Co. — Diseño de Pantalla Móvil Web
 
 Proyecto desarrollado para la asignatura **Diseño de Interfaces** utilizando **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4** y **Lucide React**.
 
----
-
-## 📱 Características de la Interfaz
-
-- **Diseño Mobile-First Optimizado:** Estructura pensada para pantallas de smartphone, con áreas seguras (`safe-area-insets`), soporte táctil y tipografía fluida.
-- **Selector de Vista para Evaluación:** Botón superior para alternar entre **Modo Marco de Teléfono** (mockup de smartphone con notch y sombras) y **Pantalla Completa Responsiva**.
-- **Barra de Navegación Móvil (Bottom Bar):** Acceso rápido con retroalimentación visual a *Inicio*, *Explorar*, *Deseos*, *Bolsa* y *Perfil*.
-- **Catálogo y Filtro Dinámico por Categorías:** Filtros con desplazamiento horizontal fluido (*Todos*, *Sneakers*, *Relojes*, *Streetwear*, *Audio*, *Accesorios*).
-- **Búsqueda Instantánea & Ordenamiento:** Búsqueda en tiempo real por palabras clave y filtro por precio o popularidad.
-- **Detalle de Producto (Bottom Sheet Modal):** Hoja deslizable con selector de color, tallas interactivas, indicador de stock y selector de cantidad.
-- **Bolsa de Compras (Slide-over Cart):** Control de cantidades, cálculo dinámico de subtotal, envío gratis condicional y sistema de cupones (`AURA10` para 10% OFF o `PROFE` para 25% OFF).
-- **Lista de Favoritos (Wishlist):** Marcado y desmarcado de favoritos con contador en tiempo real.
-- **Sistema de Notificaciones Toast:** Confirmaciones sutiles tipo píldora para acciones del usuario.
+El diseño recrea la interfaz visual artesanal de **Crust Pizza Co.** adaptada de forma nativa a pantallas móviles para la web.
 
 ---
 
-## 🚀 Cómo Ejecutar el Proyecto
+## 🎨 Características del Diseño Implementado
 
-1. **Instalar dependencias:**
-   ```bash
-   npm install
-   ```
+1. **Estilo Editorial & Artesanal:**
+   - Paleta de colores cálida basada en tonos crema (`#F5F0EB`), terracota / naranja horneado (`#E8772E`) y negro carbón (`#1A1A1A`).
+   - Efectos de cinta adhesiva (*washi tape*) en las fotos polaroid del equipo y en el banner hero.
+   - Sello circular vintage de la marca (`CRUST PIZZA CO.`).
 
-2. **Iniciar servidor de desarrollo:**
-   ```bash
-   npm run dev
-   ```
-   Abre [http://localhost:3000](http://localhost:3000) en tu navegador (o actívalo en modo dispositivo móvil en DevTools: `F12` > icono de móvil).
+2. **Adaptación Mobile-First:**
+   - Barra de navegación fija con menú desplegable para dispositivos móviles.
+   - **Selector de modo evaluador (barra superior):** Permite alternar entre **Modo Marco de Teléfono (410px)** y **Pantalla Completa Responsiva**.
+   - **Barra de navegación inferior flotante (Bottom Bar):** Con accesos rápidos al alcance del pulgar (*Inicio*, *Menú*, *Ordenar* y *Llamar*).
 
-3. **Compilar para producción:**
-   ```bash
-   npm run build
+3. **Secciones recreadas:**
+   - **Hero:** Titular *"For delicious, made-from scratch pizzas"*, botón *"Order Online"* y tarjeta para foto principal.
+   - **Our Menu:** 4 tarjetas de especialidades (*Chicken Parm*, *Chicken Alfredo*, *Spaghetti & Meatballs*, *Baked Mac & Cheese*) con sus badges circulares de precio ($9, $8, $9, $10) y botón *"View Our Complete Menu"*.
+   - **Chicago-Style Thin Crust Pizza:** Propuesta de valor con botones *"Learn More"* / *"See Listings"*, rejilla de 6 iconos de servicios en naranja y 2 fotos estilo Polaroid con efecto de cinta adhesiva.
+   - **Ways to Enjoy:** Tarjeta de pizza con sello central de la marca + 2 tarjetas oscuras (*Award-Winning* y *Kids Eat Free Tuesdays!*) + mosaico de 6 fotos *"Why Choose Us"*.
+   - **Community:** Sección social `@yourbrandhandle` con espacio para ilustración/foto.
+   - **Franchise & Request:** Sección de franquicia con tarjeta para la fachada del local y botones de acción rápida (*Locations*, *Get Directions*, *Follow Us*).
+   - **Footer:** Pie de página con sello circular, links de navegación y copyright.
+
+---
+
+## 🖼️ Cómo Colocar tus Imágenes Cuando las Tengas
+
+Todas las imágenes cuentan con un componente reutilizable `ImageCardSlot` con estilos limpios y etiquetas que indican qué foto corresponde a cada lugar.
+
+Para colocar tus imágenes:
+1. Guarda tus fotos en la carpeta `public/images/` (por ejemplo: `public/images/pizza-hero.jpg`).
+2. Abre [`src/app/page.tsx`](file:///home/kevin/Universidad/Diseño%20de%20interfaces/Diseñar%20pantalla%201/ejercicio_14-Octubre-2026/src/app/page.tsx).
+3. En el `ImageCardSlot` correspondiente, añade la propiedad `imageSrc`, por ejemplo:
+   ```tsx
+   <ImageCardSlot
+     label="[ Foto: Pizza Hero ]"
+     imageSrc="/images/pizza-hero.jpg"
+     className="w-full h-44"
+   />
    ```
 
 ---
 
-## 📂 Estructura Principal
+## 🚀 Cómo Ejecutar
 
-- [`src/app/page.tsx`](file:///home/kevin/Universidad/Diseño%20de%20interfaces/Diseñar%20pantalla%201/ejercicio_14-Octubre-2026/src/app/page.tsx): Componente principal interactivo con estados de navegación, catálogo, modal de detalles y bolsa de compra.
-- [`src/app/globals.css`](file:///home/kevin/Universidad/Diseño%20de%20interfaces/Diseñar pantalla 1/ejercicio_14-Octubre-2026/src/app/globals.css): Sistema de diseño oscuro contemporáneo, clases glassmorphism y variables de tema.
-- [`src/app/layout.tsx`](file:///home/kevin/Universidad/Diseño%20de%20interfaces/Diseñar pantalla 1/ejercicio_14-Octubre-2026/src/app/layout.tsx): Configuración de fuentes Geist, metadatos y viewport móvil estricto.
-- [`next.config.ts`](file:///home/kevin/Universidad/Diseño%20de%20interfaces/Diseñar pantalla 1/ejercicio_14-Octubre-2026/next.config.ts): Configuración de turbopack y patrones remotos de imágenes.
+```bash
+# Iniciar servidor local
+npm run dev
+
+# Compilar para producción
+npm run build
+```
+
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.

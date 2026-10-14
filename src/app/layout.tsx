@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AURA Studio | Experiencia Móvil de Compra",
-  description: "Diseño de interfaz móvil para tienda urbana contemporánea e-commerce",
+  title: "Crust Pizza Co. | Chicago-Style Thin Crust Pizza",
+  description: "Delicious, made-from scratch pizzas. Handcrafted dough, fresh ingredients, and stone-oven baked perfection.",
 };
 
 export const viewport: Viewport = {
@@ -22,7 +22,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#0b0d13",
+  themeColor: "#f5f0eb",
 };
 
 export default function RootLayout({
@@ -35,7 +35,7 @@ export default function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#0b0d13] text-gray-100 selection:bg-indigo-500 selection:text-white">
+      <body className="min-h-full flex flex-col bg-[#ede7df] text-[#1a1a1a]">
         {children}
       </body>
     </html>
